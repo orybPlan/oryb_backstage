@@ -5,7 +5,7 @@
  * @Author: flq
  * @Date: 2020-02-27 22:34:21
  * @LastEditors: ''
- * @LastEditTime: 2020-03-01 22:09:24
+ * @LastEditTime: 2020-03-03 23:41:59
  */
 import Vue from 'vue'
 import App from './App.vue'
@@ -35,27 +35,27 @@ Vue.config.productionTip = false
  * @Author: flq
  * @Date: 2020-03-01 22:08:57
  */
-router.beforeEach((to, from, next) => {
-  if (to.matched.length !== 0) {
-    if (to.meta.requireAuth) { // 判断该路由是否需要登录权限
-      if (sessionStorage.getItem('Authorization')) { // 判断token是否存在
-        next()
-      } else {
-        next({
-          path: '/',
-          query: { redirect: to.fullPath } // 将跳转的路由path作为参数，登录成功后跳转到该路由
-        })
-      }
-    } else {
-      next()
-    }
-  } else {
-    next({
-      path: '/',
-      query: { redirect: to.fullPath } // 将跳转的路由path作为参数，登录成功后跳转到该路由
-    })
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.matched.length !== 0) {
+//     if (to.meta.requireAuth) { // 判断该路由是否需要登录权限
+//       if (sessionStorage.getItem('Authorization')) { // 判断token是否存在
+//         next()
+//       } else {
+//         next({
+//           path: '/',
+//           query: { redirect: to.fullPath } // 将跳转的路由path作为参数，登录成功后跳转到该路由
+//         })
+//       }
+//     } else {
+//       next()
+//     }
+//   } else {
+//     next({
+//       path: '/',
+//       query: { redirect: to.fullPath } // 将跳转的路由path作为参数，登录成功后跳转到该路由
+//     })
+//   }
+// })
 
 new Vue({
   router,
